@@ -45,6 +45,7 @@ count = 0
 
 while True:
     ret, frame = cap.read()
+    #frame = cv2.flip(frame,1)
     if not ret:
         continue
 

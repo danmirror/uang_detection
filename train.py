@@ -11,10 +11,10 @@ import os
 IMG_SAVE_PATH = 'image_data'
 
 CLASS_MAP = {
-    "rock": 0,
-    "paper": 1,
-    "scissors": 2,
-    "none": 3
+    "seratus": 0,
+    "duaribu": 1,
+    
+    "none":2,
 }
 
 NUM_CLASSES = len(CLASS_MAP)
@@ -31,7 +31,7 @@ def get_model():
         Convolution2D(NUM_CLASSES, (1, 1), padding='valid'),
         Activation('relu'),
         GlobalAveragePooling2D(),
-        Activation('softmax')
+        Activation('softmax')#karena lebih dari satu 
     ])
     return model
 
@@ -79,7 +79,7 @@ model.compile(
 )
 
 # start training
-model.fit(np.array(data), np.array(labels), epochs=10)
+model.fit(np.array(data), np.array(labels), epochs=20)
 
 # save the model for later use
-model.save("rock-paper-scissors-model.h5")
+model.save("model.h5")
